@@ -166,7 +166,7 @@
                                                     <option value="3">Price: $$ - $</option>
                                                     <option value="4">Price: $ - $$</option>
                                                 </select>
-                                                <input type="submit"/>
+                                                <input type="hidden"/>
                                             </form>
                                         </div>
                                     </div>
