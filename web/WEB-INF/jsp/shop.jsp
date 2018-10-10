@@ -23,6 +23,23 @@
         <link rel="stylesheet" href="../css/core-style.css">
         <link rel="stylesheet" href="../style.css">
 
+        <style>
+            .easyPaginateNav{
+                width: 100% !important;
+                text-align: center;
+            }
+            .easyPaginateNav a {
+                padding: 2vh 3vh 2vh 3vh;
+                color: #727a7a;
+                border: 1px solid #e9e9e9;
+            }
+            .easyPaginateNav a.current {
+                font-weight:bold;
+                background-color: #e9ecef; ;
+                color: #0315ff;
+            }
+        </style>
+
     </head>
     <body>
         <jsp:include page="header.jsp"/>
@@ -199,7 +216,7 @@
                                         </div>
                                     </div>
                                 </c:forEach>
-                                
+
 
 
 
@@ -266,18 +283,7 @@
 
                             </div>
                         </div>
-                        <!-- Pagination -->
-                        <nav aria-label="navigation">
-                            <ul class="pagination mt-50 mb-70">
-                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                <li class="page-item"><a class="page-link" href="#">21</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                        </nav>
+
                     </div>
                 </div>
             </div>
@@ -293,11 +299,11 @@
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="../js/jquery.easyPaginate.js"></script>
         <script>
-                                                    $('#easyPaginate').easyPaginate({
-                                                        paginateElement: 'div.col-12',
-                                                        elementsPerPage: 9,
-                                                        effect: 'default'
-                                                    });
+            $('#easyPaginate').easyPaginate({
+                paginateElement: 'div.col-12',
+                elementsPerPage: 2,
+                effect: 'default'
+            });
         </script>
         <!-- jQuery (Necessary for All JavaScript Plugins) -->
         <script src="../js/jquery/jquery-2.2.4.min.js"></script>
