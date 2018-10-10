@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import model.NavigationBar;
 import model.Products;
+import model.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,16 +32,20 @@ public class LoginController {
     public String loginIndex(ModelMap model, HttpServletRequest request, HttpSession session) {
         String username = request.getParameter("txtUser");
         String password = request.getParameter("txtPass");
-        UsersDAO users = new UsersDAO(); 
+        UsersDAO users = new UsersDAO();
         if (users.Login(username, password) == "admin" || users.Login(username, password) == "nhanvien") {
             session.setAttribute("USER", username);
             session.setAttribute("PASS", password);
             session.setAttribute("ROLE", users.Login(username, password));
-            
+
             ProductsDAO products = new ProductsDAO();
             List<Products> ds = new ArrayList<Products>();
             ds = products.showProducts();
             model.addAttribute("listProducts", ds);
+
+            List<Users> ds2 = new ArrayList<Users>();
+            ds2 = users.showUsers(username);
+            session.setAttribute("IMGUSER", ds2.get(0).getImageuser());
 
             NavigationBarDAO navigation = new NavigationBarDAO();
             List<NavigationBar> thuonghieu = new ArrayList<NavigationBar>();
@@ -58,6 +63,5 @@ public class LoginController {
             model.addAttribute("login_error", "Sai tên tài khoản hoặc mật khẩu !");
             return "login";
         }
-
     }
 }

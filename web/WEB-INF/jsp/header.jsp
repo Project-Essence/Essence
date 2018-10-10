@@ -75,39 +75,13 @@
 
             <!-- User Login Info -->
             <c:if test="${sessionScope.USER == null}">
-                <div class="classy-menu">
-                    <div class="classynav">
-                        <ul>
-                            <li class="user-login-info">
-                                <a href="#"><img src="../img/core-img/user.svg" alt=""></a>
-                                <div class="megamenu" style="width: 50%;left:50%;">
-                                    <ul class="single-mega cn-col-4" style="width: 100%">
-                                        <form action="../login/loginIndex.htm" method="get">
-                                            <div class="row">
-                                                ${login_error}
-                                                <div class="col-12 mb-3">
-                                                    <label for="city">Username </label>
-                                                    <input type="text" name="txtUser" class="form-control" id="city" value="">
-                                                </div>
-                                                <div class="col-12 mb-3">
-                                                    <label for="state">Password </label>
-                                                    <input type="password" name="txtPass" class="form-control" id="state" value="">
-                                                </div>
-                                                <div style="width: 100%;text-align: center;">
-                                                    <input class="btn essence-btn" type="submit"/>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="user-login-info">
+                    <a href="#"><img src="../img/core-img/user.svg" alt="" data-toggle="modal" data-target="#loginModal"></a>
                 </div>
             </c:if>
             <c:if test="${sessionScope.USER != null}">
                 <div class="user-login-info">
-                    <a href="#"><img src="../img/core-img/user.svg" alt=""></a>
+                        <a href="#"><img src="../img/users-img/${sessionScope.IMGUSER}" alt="" style="border-radius: 50%;max-width: 100%;height: 90%;"></a>
                 </div>
             </c:if>
 

@@ -49,6 +49,7 @@ public class ProductsController {
         model.addAttribute("listNav_linhkien", linhkien);
         model.addAttribute("listNav_gioitinh", gioitinh);
         session.getAttribute("CARTSIZE");
+        session.getAttribute("IMGUSER");
         return "index";
     }
 
@@ -72,6 +73,7 @@ public class ProductsController {
         model.addAttribute("listNav_linhkien", linhkien);
         model.addAttribute("listNav_gioitinh", gioitinh);
         session.getAttribute("CARTSIZE");
+        session.getAttribute("IMGUSER");
         return "shop";
     }
 
@@ -96,6 +98,7 @@ public class ProductsController {
         model.addAttribute("listNav_linhkien", linhkien);
         model.addAttribute("listNav_gioitinh", gioitinh);
         session.getAttribute("CARTSIZE");
+        session.getAttribute("IMGUSER");
         return "shop";
     }
 
@@ -120,6 +123,7 @@ public class ProductsController {
         model.addAttribute("listNav_linhkien", linhkien);
         model.addAttribute("listNav_gioitinh", gioitinh);
         session.getAttribute("CARTSIZE");
+        session.getAttribute("IMGUSER");
         return "shop";
     }
 
@@ -144,6 +148,7 @@ public class ProductsController {
         model.addAttribute("listNav_linhkien", linhkien);
         model.addAttribute("listNav_gioitinh", gioitinh);
         session.getAttribute("CARTSIZE");
+        session.getAttribute("IMGUSER");
         return "shop";
     }
 
@@ -169,6 +174,7 @@ public class ProductsController {
         model.addAttribute("listNav_linhkien", linhkien);
         model.addAttribute("listNav_gioitinh", gioitinh);
         session.getAttribute("CARTSIZE");
+        session.getAttribute("IMGUSER");
         return "shop";
     }
 
@@ -195,6 +201,7 @@ public class ProductsController {
         model.addAttribute("listNav_linhkien", linhkien);
         model.addAttribute("listNav_gioitinh", gioitinh);
         session.getAttribute("CARTSIZE");
+        session.getAttribute("IMGUSER");
         return "shop";
     }
 

@@ -57,7 +57,7 @@ public class CartBeanController {
         session.setAttribute("SHOP", a);
         model.addAttribute("listProducts", ds);
         session.setAttribute("CARTSIZE", a.size());
-        
+        session.getAttribute("IMGUSER");
 
         NavigationBarDAO navigation = new NavigationBarDAO();
         List<NavigationBar> thuonghieu = new ArrayList<NavigationBar>();

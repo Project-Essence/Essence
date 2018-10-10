@@ -46,6 +46,7 @@ public class ProductDetailController {
         model.addAttribute("listNav_linhkien", linhkien);
         model.addAttribute("listNav_gioitinh", gioitinh);
         session.getAttribute("CARTSIZE");
+        session.getAttribute("IMGUSER");
 
         return "shop_detail";
     }

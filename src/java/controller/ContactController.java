@@ -37,6 +37,7 @@ public class ContactController {
         model.addAttribute("listNav_linhkien", linhkien);
         model.addAttribute("listNav_gioitinh", gioitinh);
         session.getAttribute("CARTSIZE");
+        session.getAttribute("IMGUSER");
         return "contact";
     }
 

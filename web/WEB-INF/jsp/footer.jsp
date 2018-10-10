@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- ##### Footer Area Start ##### -->
 <footer class="footer_area clearfix">
     <div class="container">
@@ -75,3 +76,40 @@
 
     </div>
 </footer>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Login</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form action="../login/loginIndex.htm" method="get">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div>
+                        ${login_error}
+                        <div class="col-12 mb-3">
+                            <label for="city">Username </label>
+                            <input type="text" name="txtUser" class="form-control" id="city" value="">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="state">Password </label>
+                            <input type="password" name="txtPass" class="form-control" id="state" value="">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="state">Đăng ký tài khoản <a href="#" style="font-size: 14px;">tại đây </a> </label>
+                            <label for="state" style="float: right;"><a href="#" style="font-size: 14px;">Quên mật khẩu ? </a> </label>
+                        </div>
+                        <div style="width: 100%;text-align: center;">
+                            <input class="btn essence-btn" type="submit"/>
+                            <button type="button" class="btn essence-btn" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
