@@ -81,7 +81,7 @@
             </c:if>
             <c:if test="${sessionScope.USER != null}">
                 <div class="user-login-info">
-                        <a href="#"><img src="../img/users-img/${sessionScope.IMGUSER}" alt="" style="border-radius: 50%;max-width: 100%;height: 90%;"></a>
+                    <a href="#"><img src="../img/users-img/${sessionScope.IMGUSER}" alt="Error" style="border-radius: 50%;max-width: 100%;height: 90%;" data-toggle="modal" data-target="#userInfo"></a>
                 </div>
             </c:if>
 
@@ -90,6 +90,23 @@
                 <a href="#" id="essenceCartBtn"><img src="../img/core-img/bag.svg" alt=""> <span>${sessionScope.CARTSIZE}</span></a>
             </div>
         </div>
-
     </div>
 </header>
+<div>
+    <c:if test="${login_error != null}">
+        <div class="container" style="max-width: 100%;padding: 0;">
+            <div class="alert alert-danger alert-dismissible" style="margin: 0;text-align: center;">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Sai tên tài khoản hoặc mật khẩu.</strong> 
+            </div>
+        </div>
+    </c:if>
+    <c:if test="${sessionScope.USER != null}">
+        <div class="container" style="max-width: 100%;padding: 0;">
+            <div class="alert alert-success alert-dismissible" style="margin: 0;text-align: center;">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Đăng nhập thành công.</strong>
+            </div>
+        </div>
+    </c:if>
+</div>

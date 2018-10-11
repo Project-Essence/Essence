@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- ##### Footer Area Start ##### -->
 <footer class="footer_area clearfix">
     <div class="container">
@@ -90,7 +91,7 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div>
-                        ${login_error}
+
                         <div class="col-12 mb-3">
                             <label for="city">Username </label>
                             <input type="text" name="txtUser" class="form-control" id="city" value="">
@@ -100,11 +101,190 @@
                             <input type="password" name="txtPass" class="form-control" id="state" value="">
                         </div>
                         <div class="col-12 mb-3">
-                            <label for="state">Đăng ký tài khoản <a href="#" style="font-size: 14px;">tại đây </a> </label>
+                            <label for="state">Đăng ký tài khoản <a href="#" style="font-size: 14px;" data-toggle="modal" data-target="#user_register" >tại đây </a> </label>
                             <label for="state" style="float: right;"><a href="#" style="font-size: 14px;">Quên mật khẩu ? </a> </label>
                         </div>
                         <div style="width: 100%;text-align: center;">
-                            <input class="btn essence-btn" type="submit"/>
+                            <button type="submit" class="btn essence-btn" >Submit</button>
+                            <button type="button" class="btn essence-btn" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>             
+
+<!-- User Info Modal -->
+<div class="modal fade" id="userInfo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">User Info</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <c:forEach var="rows" items="${listUser}">
+                    <div>
+                        <div class="row">
+                            <div class="col-3" style="line-height: 5vh;">
+                                <label>ID </label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" disabled="true" class="form-control" id="state" value="${rows.id}">
+                            </div>
+                            <div class="col-3" style="line-height: 5vh;">
+                                <label>Username </label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" disabled="true" class="form-control" id="state" value="${rows.username}">
+                            </div>
+                            <div class="col-3" style="line-height: 5vh;">
+                                <label>Password </label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" disabled="true" class="form-control" id="state" value="*********">
+                            </div>
+                            <div class="col-3" style="line-height: 5vh;">
+                                <label>Name </label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" disabled="true" class="form-control" id="state" value="${rows.name}">
+                            </div>
+                            <div class="col-3" style="line-height: 5vh;">
+                                <label>Role </label>
+                            </div>
+                            <c:if test="${rows.roleid == 1}">
+                                <div class="col-9">
+                                    <input type="text" disabled="true" class="form-control" id="state" value="Admin">
+                                </div>
+                            </c:if>
+                            <c:if test="${rows.roleid == 2}">
+                                <div class="col-9">
+                                    <input type="text" disabled="true" class="form-control" id="state" value="Nhân viên">
+                                </div>
+                            </c:if>
+                            <c:if test="${rows.roleid == 3}">
+                                <div class="col-9">
+                                    <input type="text" disabled="true" class="form-control" id="state" value="Khách hàng">
+                                </div>
+                            </c:if>
+                            <div class="col-3" style="line-height: 5vh;">
+                                <label>Image </label>
+                            </div>
+                            <div class="col-9">
+                                <img src="../img/users-img/${rows.imageuser}" style="margin-bottom: 2%;">
+                            </div>
+                            <div class="col-3" style="line-height: 5vh;">
+                                <label>Phone </label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" disabled="true" class="form-control" id="state" value="${rows.phone}">
+                            </div>
+                            <div class="col-3" style="line-height: 5vh;">
+                                <label>Address </label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" disabled="true" class="form-control" id="state" value="${rows.address}" style="overflow: hidden;text-overflow: ellipsis;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div style="width: 100%;text-align: center;">
+                            <a href="../login/logout.htm" class="btn essence-btn" >Đăng xuất</a>
+                            <button type="button" class="btn essence-btn" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+    </div>
+</div>      
+
+<!-- User Register -->
+<div class="modal fade" id="user_register" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Register</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form action="../login/register.htm" method="post">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div>
+                        <div class="col-12 mb-3">
+                            <label for="city">Username </label>
+                            <input type="text" name="txtUser" class="form-control" value="">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="state">Password </label>
+                            <input type="password" name="txtPass" class="form-control" value="">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="state">Email </label>
+                            <input type="email" name="txtEmail" class="form-control" value="">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="state">Name </label>
+                            <input type="text" name="txtName" class="form-control" value="">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="state">Image </label>
+                            <input type="file" class="form-control" name="txtImage" value="">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="state">Phone Number </label>
+                            <input type="text" class="form-control" name="txtPhone" value="">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="state">Address </label>
+                            <input type="text" class="form-control" name="txtAddress" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div style="width: 100%;text-align: center;">
+                        <button type="submit" class="btn essence-btn" >Submit</button>
+                        <button type="button" class="btn essence-btn" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Forgot password -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Login</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form action="../login/loginIndex.htm" method="get">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div>
+
+                        <div class="col-12 mb-3">
+                            <label for="city">Username </label>
+                            <input type="text" name="txtUser" class="form-control" id="city" value="">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="state">Password </label>
+                            <input type="password" name="txtPass" class="form-control" id="state" value="">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="state">Đăng ký tài khoản <a href="#" style="font-size: 14px;" data-toggle="modal" data-target="#user_register" >tại đây </a> </label>
+                            <label for="state" style="float: right;"><a href="#" style="font-size: 14px;">Quên mật khẩu ? </a> </label>
+                        </div>
+                        <div style="width: 100%;text-align: center;">
+                            <button type="submit" class="btn essence-btn" >Submit</button>
                             <button type="button" class="btn essence-btn" data-dismiss="modal">Close</button>
                         </div>
                     </div>
