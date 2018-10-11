@@ -87,11 +87,10 @@
                 <h4 class="modal-title">Login</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <form action="../login/loginIndex.htm" method="get">
+            <form action="../login/loginIndex.htm" method="post">
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div>
-
                         <div class="col-12 mb-3">
                             <label for="city">Username </label>
                             <input type="text" name="txtUser" class="form-control" id="city" value="">

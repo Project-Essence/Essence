@@ -36,7 +36,7 @@ public class LoginController {
     @Autowired
     JavaMailSender mailer1;
 
-    @RequestMapping(value = "loginIndex", method = RequestMethod.GET)
+    @RequestMapping(value = "loginIndex", method = RequestMethod.POST)
     public String loginIndex(ModelMap model, HttpServletRequest request, HttpSession session) {
         String username = request.getParameter("txtUser");
         String password = request.getParameter("txtPass");
